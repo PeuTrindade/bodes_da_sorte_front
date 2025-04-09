@@ -29,7 +29,8 @@
       "screens/*",
       "navigation/*",
       "assets/*",
-      "components/*"
+      "components/*",
+       "utils/*"
       ]
     }
   },
