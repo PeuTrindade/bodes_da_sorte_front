@@ -1,0 +1,11 @@
+# Ignorar pastas e arquivos desnecessários
+node_modules/
+dist/
+build/
+.env
+ambiente/
+*.log
+*.h5
+*.pyc
+*.pyo
+_pycache_/
