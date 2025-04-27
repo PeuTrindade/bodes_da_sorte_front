@@ -90,7 +90,7 @@ const BetSelectionScreen = () => {
         renderItem={({ item }) => (
           <OptionCard onPress={() => handleSelectOption(item)}>
             <OptionLabel>{item.name}</OptionLabel>
-            <PriceText>R$ {item.price.toFixed(2)}</PriceText>
+            <PriceText>{Number(item.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</PriceText>
           </OptionCard>
         )}
       />}

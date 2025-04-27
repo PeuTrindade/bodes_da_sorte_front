@@ -30,7 +30,14 @@ const RootNavigator = () => {
   return (
     <Stack.Navigator initialRouteName="Login">
       <Stack.Screen name="Home" component={HomeScreen} options={{
-        title: 'Bodes de Sorte', headerBackTitle: 'Voltar', headerLeft: () => null, headerRight: () => (
+        title: 'Bodes de Sorte', headerLeft: () => (
+          <TouchableOpacity
+            onPress={() => console.log()}
+            style={{ marginLeft: 15 }}
+          >
+            <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
+          </TouchableOpacity>
+        ), headerRight: () => (
           <>
             <TouchableOpacity
               onPress={() => navigation.navigate('MyBets')}
@@ -60,7 +67,27 @@ const RootNavigator = () => {
         )
       }} />
       <Stack.Screen name="BetSelection" component={BetSelectionScreen} options={{
-        title: 'Escolher Aposta', headerBackTitle: 'Voltar', headerRight: () => (
+        title: 'Escolher Aposta', headerLeft: () => (
+          <>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 15 }}>
+              <MaterialIcons name="arrow-back" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="home" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => console.log()}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          </>
+        ), headerRight: () => (
           <>
             <TouchableOpacity
               onPress={() => navigation.navigate('MyBets')}
@@ -90,7 +117,27 @@ const RootNavigator = () => {
         )
       }} />
       <Stack.Screen name="Payment" component={PaymentScreen} options={{
-        title: 'Aposta', headerBackTitle: 'Voltar', headerRight: () => (
+        title: 'Aposta', headerLeft: () => (
+          <>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 15 }}>
+              <MaterialIcons name="arrow-back" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="home" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => console.log()}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          </>
+        ), headerRight: () => (
           <>
             <TouchableOpacity
               onPress={() => navigation.navigate('MyBets')}
@@ -120,7 +167,27 @@ const RootNavigator = () => {
         )
       }} />
       <Stack.Screen name="BetConfirmation" component={BetConfirmationScreen} options={{
-        title: 'Confirmação', headerBackTitle: 'Voltar', headerRight: () => (
+        title: 'Confirmação', headerLeft: () => (
+          <>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 15 }}>
+              <MaterialIcons name="arrow-back" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="home" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => console.log()}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          </>
+        ), headerRight: () => (
           <>
             <TouchableOpacity
               onPress={() => navigation.navigate('MyBets')}
@@ -150,7 +217,27 @@ const RootNavigator = () => {
         )
       }} />
       <Stack.Screen name="MyBets" component={MyBetsScreen} options={{
-        title: 'Minhas Apostas', headerBackTitle: 'Voltar', headerRight: () => (
+        title: 'Minhas Apostas', headerLeft: () => (
+          <>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 15 }}>
+              <MaterialIcons name="arrow-back" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="home" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => console.log()}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          </>
+        ), headerRight: () => (
           <>
             {isAdmin && (
               <TouchableOpacity
@@ -173,7 +260,27 @@ const RootNavigator = () => {
         )
       }} />
       <Stack.Screen name="Results" component={ResultsScreen} options={{
-        title: 'Resultados', headerBackTitle: 'Voltar', headerRight: () => (
+        title: 'Resultados', headerLeft: () => (
+          <>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 15 }}>
+              <MaterialIcons name="arrow-back" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="home" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => console.log()}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          </>
+        ), headerRight: () => (
           <>
             <TouchableOpacity
               onPress={() => navigation.navigate('MyBets')}
@@ -204,7 +311,27 @@ const RootNavigator = () => {
       }} />
       <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login', headerBackTitle: 'Voltar' }} />
       <Stack.Screen name="AdminSettings" component={AdminSettingsScreen} options={{
-        title: 'Configurações', headerBackTitle: 'Voltar', headerRight: () => (
+        title: 'Configurações', headerLeft: () => (
+          <>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 15 }}>
+              <MaterialIcons name="arrow-back" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="home" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => console.log()}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          </>
+        ), headerRight: () => (
           <>
             <TouchableOpacity
               onPress={() => navigation.navigate('ApproveBets')}
@@ -230,11 +357,97 @@ const RootNavigator = () => {
         )
       }} />
       <Stack.Screen name="SignUp" component={SignUpScreen} options={{ title: 'Cadastro', headerBackTitle: 'Voltar' }} />
-      <Stack.Screen name="AddPackage" component={AddPackageScreen} options={{ title: 'Adicionar pacote', headerBackTitle: 'Voltar' }} />
-      <Stack.Screen name="ApproveBets" component={ApproveBetsScreen} options={{ title: 'Aprovar apostas', headerBackTitle: 'Voltar' }} />
-      <Stack.Screen name="AddTelephone" component={AddTelephoneScreen} options={{ title: 'Adicionar telefone', headerBackTitle: 'Voltar' }} />
+      <Stack.Screen name="AddPackage" component={AddPackageScreen} options={{
+        title: 'Adicionar pacote', headerLeft: () => (
+          <>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 15 }}>
+              <MaterialIcons name="arrow-back" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="home" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => console.log()}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          </>
+        )
+      }} />
+      <Stack.Screen name="ApproveBets" component={ApproveBetsScreen} options={{
+        title: 'Aprovar apostas', headerLeft: () => (
+          <>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 15 }}>
+              <MaterialIcons name="arrow-back" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="home" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => console.log()}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          </>
+        )
+      }} />
+      <Stack.Screen name="AddTelephone" component={AddTelephoneScreen} options={{
+        title: 'Adicionar telefone', headerLeft: () => (
+          <>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 15 }}>
+              <MaterialIcons name="arrow-back" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="home" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => console.log()}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          </>
+        )
+      }} />
       <Stack.Screen name="Winners" component={WinnersScrenn} options={{
-        title: 'Vencedores', headerBackTitle: 'Voltar', headerRight: () => (
+        title: 'Vencedores', headerLeft: () => (
+          <>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 15 }}>
+              <MaterialIcons name="arrow-back" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="home" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => console.log()}
+              style={{ marginLeft: 15 }}
+            >
+              <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          </>
+        ), headerRight: () => (
           <>
             <TouchableOpacity
               onPress={() => navigation.navigate('MyBets')}

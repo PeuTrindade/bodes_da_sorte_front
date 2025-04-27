@@ -6,6 +6,7 @@ import { getToken } from 'utils/secure_token';
 import { ActivityIndicator, Alert } from 'react-native';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from 'types';
+import CurrencyInput from 'react-native-currency-input';
 
 const Container = styled.View`
   flex: 1;
@@ -120,11 +121,27 @@ const AddPackageScreen = () => {
           />
 
           <Label>Preço:</Label>
-          <Input
-            value={price}
-            onChangeText={setPrice}
-            placeholder="Preço do pacote"
-            keyboardType="decimal-pad"
+
+          <CurrencyInput
+            value={price ?? null}
+            onChangeValue={(value) => {
+              setPrice(value ?? 0);
+            }}
+            prefix="R$ "
+            delimiter="."
+            separator=","
+            precision={2}
+            placeholder="Preço (R$)"
+            keyboardType="numeric"
+            style={{
+              padding: theme.spacing.small,
+              backgroundColor: theme.colors.background,
+              borderRadius: theme.borderRadius,
+              fontFamily: theme.fonts.regular,
+              fontSize: 16,
+              color: theme.colors.text,
+              marginBottom: theme.spacing.medium,
+            }}
           />
 
           <Label>Quantidade:</Label>

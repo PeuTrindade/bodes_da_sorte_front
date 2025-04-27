@@ -9,6 +9,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from 'types';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useForm, Controller, useFieldArray } from 'react-hook-form';
+import CurrencyInput from 'react-native-currency-input';
 
 const Container = styled.View`
   flex: 1;
@@ -322,11 +323,26 @@ const AdminSettingsScreen = () => {
                   control={control}
                   name={`betTypes.${index}.price` as any}
                   render={({ field }) => (
-                    <Input
-                      value={String(field.value)}
-                      onChangeText={field.onChange}
-                      keyboardType="decimal-pad"
+                    <CurrencyInput
+                      value={field.value ?? null}
+                      onChangeValue={(value) => {
+                        field.onChange(value);
+                      }}
+                      prefix="R$ "
+                      delimiter="."
+                      separator=","
+                      precision={2}
                       placeholder="Preço (R$)"
+                      keyboardType="numeric"
+                      style={{
+                        padding: theme.spacing.small,
+                        backgroundColor: theme.colors.background,
+                        borderRadius: theme.borderRadius,
+                        fontFamily: theme.fonts.regular,
+                        fontSize: 16,
+                        color: theme.colors.text,
+                        marginBottom: theme.spacing.medium,
+                      }}
                     />
                   )}
                 />
@@ -372,11 +388,26 @@ const AdminSettingsScreen = () => {
                   control={control}
                   name={`destinations.${index}.award` as any}
                   render={({ field }) => (
-                    <Input
-                      value={String(field.value)}
-                      onChangeText={field.onChange}
-                      keyboardType="decimal-pad"
-                      placeholder="Premiação (R$)"
+                    <CurrencyInput
+                      value={field.value ?? null}
+                      onChangeValue={(value) => {
+                        field.onChange(value);
+                      }}
+                      prefix="R$ "
+                      delimiter="."
+                      separator=","
+                      precision={2}
+                      placeholder="Preço (R$)"
+                      keyboardType="numeric"
+                      style={{
+                        padding: theme.spacing.small,
+                        backgroundColor: theme.colors.background,
+                        borderRadius: theme.borderRadius,
+                        fontFamily: theme.fonts.regular,
+                        fontSize: 16,
+                        color: theme.colors.text,
+                        marginBottom: theme.spacing.medium,
+                      }}
                     />
                   )}
                 />

@@ -41,7 +41,7 @@ const DestinoCard = styled.TouchableOpacity`
   border-radius: ${theme.borderRadius}px;
   margin-bottom: ${theme.spacing.medium}px;
   ${theme.shadow};
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 `;
@@ -106,7 +106,7 @@ const HomeScreen = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <DestinoCard onPress={() => handleSelectDestino(item)}>
-            <DestinoText>{item.name}: {`R$${item.award}`}</DestinoText>
+            <DestinoText>{item.name}: {Number(item.award).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</DestinoText>
             <AvailableText>{100000 * (item.limit / 100)} disponíveis</AvailableText>
           </DestinoCard>
         )}

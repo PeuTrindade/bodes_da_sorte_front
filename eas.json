@@ -3,32 +3,31 @@
     "version": ">= 16.2.1",
     "appVersionSource": "remote"
   },
-  "build": {
-    "development": {
-      "developmentClient": false,
-      "distribution": "internal",
+ "build": {
+    "develop": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "teste": {
       "android": {
         "buildType": "apk"
       },
-      "env": {
-        "NODE_ENV": "production"
-      },
-      "cache": {
-        "disabled": true
-      }
+      "channel": "hmg"
     },
-    "preview": {
-      "distribution": "internal",
+    "hmg": {
       "android": {
-        "buildType": "apk",
-        "gradleCommand": ":app:assembleRelease"
-      }
+        "buildType": "apk"
+      },
+      "channel": "hmg"
     },
-    "production": {
+    "main": {
+      "distribution": "store",
+      "node": "18.18.0",
       "autoIncrement": true,
       "android": {
         "buildType": "app-bundle"
-      }
+      },
+      "channel": "main"
     }
   },
   "submit": {

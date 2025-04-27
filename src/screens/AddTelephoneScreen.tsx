@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Alert } from 'react-native';
 import { addTelephone, getTelephone } from 'requests/login';
 import { getToken } from 'utils/secure_token';
+import { MaskedTextInput } from 'react-native-mask-text';
 
 const Container = styled.View`
   flex: 1;
@@ -49,20 +50,10 @@ const Label = styled.Text`
   margin-bottom: ${theme.spacing.small}px;
 `;
 
-const Input = styled.TextInput`
-  padding: ${theme.spacing.small}px;
-  background-color: ${theme.colors.background};
-  border-radius: ${theme.borderRadius}px;
-  font-family: ${theme.fonts.regular};
-  font-size: 16px;
-  color: ${theme.colors.text};
-  margin-bottom: ${theme.spacing.medium}px;
-`;
-
 
 const AddTelephoneScreen = () => {
   const [loading, setLoading] = useState(false);
-  const [telephone, setTelephone] = useState<number>();
+  const [telephone, setTelephone] = useState<number>(55);
   const [fetchingNumber, setFetchingNumber] = useState(true);
 
   const handleAddTelephone = async () => {
@@ -120,11 +111,23 @@ const AddTelephoneScreen = () => {
       {fetchingNumber ? <ActivityIndicator size="large" color={theme.colors.primary} /> : <CardContainer>
         <Label>Telefone:</Label>
 
-        <Input
-          value={telephone}
-          onChangeText={setTelephone}
-          keyboardType="numeric"
+        <MaskedTextInput
+          mask="+99 (99) 99999-9999"
+          value={String(telephone)}
+          onChangeText={(text, rawText) => {
+            setTelephone(+rawText);
+          }}
+          keyboardType="phone-pad"
           placeholder="Telefone com DDD"
+          style={{
+            padding: theme.spacing.small,
+            backgroundColor: theme.colors.background,
+            borderRadius: theme.borderRadius,
+            fontFamily: theme.fonts.regular,
+            fontSize: 16,
+            color: theme.colors.text,
+            marginBottom: theme.spacing.medium,
+          }}
         />
 
         <SaveButton disabled={loading} onPress={handleAddTelephone}>
