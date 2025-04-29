@@ -13,13 +13,14 @@ import { RootStackParamList } from '../types/index';
 import { TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { theme } from 'styles/theme';
-import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { NavigationProp, useNavigation, CommonActions } from '@react-navigation/native';
 import { useAuth } from 'context/Auth.context';
 import SignUpScreen from 'screens/SignUpScreen';
 import AddPackageScreen from 'screens/AddPackageScreen';
 import WinnersScrenn from 'screens/WinnersScreen';
 import ApproveBetsScreen from 'screens/ApproveBetsScrenn';
 import AddTelephoneScreen from 'screens/AddTelephoneScreen';
+import { storeToken } from 'utils/secure_token';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -27,12 +28,23 @@ const RootNavigator = () => {
   const { isAdmin } = useAuth();
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
+  const logoutFn = () => {
+    storeToken('');
+
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{ name: 'Login' }],
+      })
+    );
+  };
+
   return (
     <Stack.Navigator initialRouteName="Login">
       <Stack.Screen name="Home" component={HomeScreen} options={{
         title: 'Bodes de Sorte', headerLeft: () => (
           <TouchableOpacity
-            onPress={() => console.log()}
+            onPress={logoutFn}
             style={{ marginLeft: 15 }}
           >
             <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
@@ -81,7 +93,7 @@ const RootNavigator = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => console.log()}
+              onPress={logoutFn}
               style={{ marginLeft: 15 }}
             >
               <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
@@ -131,7 +143,7 @@ const RootNavigator = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => console.log()}
+              onPress={logoutFn}
               style={{ marginLeft: 15 }}
             >
               <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
@@ -181,7 +193,7 @@ const RootNavigator = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => console.log()}
+              onPress={logoutFn}
               style={{ marginLeft: 15 }}
             >
               <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
@@ -231,7 +243,7 @@ const RootNavigator = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => console.log()}
+              onPress={logoutFn}
               style={{ marginLeft: 15 }}
             >
               <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
@@ -274,7 +286,7 @@ const RootNavigator = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => console.log()}
+              onPress={logoutFn}
               style={{ marginLeft: 15 }}
             >
               <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
@@ -325,7 +337,7 @@ const RootNavigator = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => console.log()}
+              onPress={logoutFn}
               style={{ marginLeft: 15 }}
             >
               <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
@@ -372,7 +384,7 @@ const RootNavigator = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => console.log()}
+              onPress={logoutFn}
               style={{ marginLeft: 15 }}
             >
               <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
@@ -395,7 +407,7 @@ const RootNavigator = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => console.log()}
+              onPress={logoutFn}
               style={{ marginLeft: 15 }}
             >
               <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
@@ -418,7 +430,7 @@ const RootNavigator = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => console.log()}
+              onPress={logoutFn}
               style={{ marginLeft: 15 }}
             >
               <MaterialIcons name="logout" size={24} color={theme.colors.primary} />
@@ -441,7 +453,7 @@ const RootNavigator = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => console.log()}
+              onPress={logoutFn}
               style={{ marginLeft: 15 }}
             >
               <MaterialIcons name="logout" size={24} color={theme.colors.primary} />

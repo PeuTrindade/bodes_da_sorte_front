@@ -7,7 +7,7 @@ import { theme } from '../styles/theme';
 import { RootStackParamList } from '../types';
 import { login } from 'requests/login';
 import { storeToken } from 'utils/secure_token';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, Image } from 'react-native';
 import { useAuth } from 'context/Auth.context';
 
 const Container = styled.View`
@@ -15,6 +15,15 @@ const Container = styled.View`
   padding: ${theme.spacing.large}px;
   background-color: ${theme.colors.background};
   justify-content: center;
+`;
+
+const Logo = styled(Image)`
+  width: 150px;
+  height: 150px;
+  align-self: center;
+  margin-bottom: ${theme.spacing.large}px;
+
+  border-radius: 50%;
 `;
 
 const Title = styled.Text`
@@ -68,65 +77,67 @@ const SignUpText = styled.Text`
 `;
 
 const LoginScreen = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState<string | undefined>();
-    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
-    const [loading, setLoading] = useState(false);
-    const { setIsAdmin } = useAuth();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | undefined>();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const [loading, setLoading] = useState(false);
+  const { setIsAdmin } = useAuth();
 
-    const handleLogin = async () => {
-      try {
-        setLoading(true);
+  const handleLogin = async () => {
+    try {
+      setLoading(true);
 
-        const response = await login({email: username, password}) as Response;
+      const response = await login({ email: username, password }) as Response;
 
-        if (response.ok) {
-          const data = await response.json();
-          const token = data.access_token;
+      if (response.ok) {
+        const data = await response.json();
+        const token = data.access_token;
 
-          setIsAdmin(data.user.isAdmin);
-          await storeToken(token);
+        setIsAdmin(data.user.isAdmin);
+        await storeToken(token);
 
-          navigation.navigate('Home');
+        navigation.navigate('Home');
 
-          setError(undefined);
-        } else {
-          setError('Credenciais inválidas!');
-        }
-
-        setLoading(false);
-      } catch (error: any) {
-        setLoading(false);
-        setError(error.message);
+        setError(undefined);
+      } else {
+        setError('Credenciais inválidas!');
       }
-    };
 
-    return (
-        <Container>
-            <Title>Login</Title>
-            {error ? <ErrorText>{error}</ErrorText> : null}
-            <Input
-                placeholder="Email"
-                value={username}
-                onChangeText={setUsername}
-                autoCapitalize="none"
-                keyboardType="email-address"
-            />
-            <Input
-                placeholder="Senha"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-            />
+      setLoading(false);
+    } catch (error: any) {
+      setLoading(false);
+      setError(error.message);
+    }
+  };
 
-            <LoginButton disabled={!username || !password || loading} onPress={handleLogin}>
-                {loading ? <ActivityIndicator color="#fff" /> : <ButtonText>Entrar</ButtonText>}
-            </LoginButton>
+  return (
+    <Container>
+      <Logo source={{ uri: 'https://i.imgur.com/BAa7AU2.jpeg' }} resizeMode="center" />
 
-            <SignUpText onPress={() => navigation.navigate('SignUp')}>Não possui conta? Realize seu cadastro.</SignUpText>
-        </Container>
-    );
+      <Title>Login</Title>
+      {error ? <ErrorText>{error}</ErrorText> : null}
+      <Input
+        placeholder="Email"
+        value={username}
+        onChangeText={setUsername}
+        autoCapitalize="none"
+        keyboardType="email-address"
+      />
+      <Input
+        placeholder="Senha"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+
+      <LoginButton disabled={!username || !password || loading} onPress={handleLogin}>
+        {loading ? <ActivityIndicator color="#fff" /> : <ButtonText>Entrar</ButtonText>}
+      </LoginButton>
+
+      <SignUpText onPress={() => navigation.navigate('SignUp')}>Não possui conta? Realize seu cadastro.</SignUpText>
+    </Container>
+  );
 };
 
 export default LoginScreen;
