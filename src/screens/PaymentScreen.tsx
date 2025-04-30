@@ -40,16 +40,6 @@ const Label = styled.Text`
   margin-bottom: ${theme.spacing.small}px;
 `;
 
-const Input = styled.TextInput`
-  padding: ${theme.spacing.small}px;
-  background-color: ${theme.colors.background};
-  border-radius: ${theme.borderRadius}px;
-  font-family: ${theme.fonts.regular};
-  font-size: 16px;
-  color: ${theme.colors.text};
-  margin-bottom: ${theme.spacing.medium}px;
-`;
-
 const SaveButton = styled.TouchableOpacity`
   padding: ${theme.spacing.medium}px;
   background-color: ${theme.colors.primary};
