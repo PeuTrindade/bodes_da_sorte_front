@@ -4,7 +4,7 @@
     "slug": "bodes-de-sorte",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "src/assets/icon.png",
+    "icon": "src/assets/bode.jpeg",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "src/assets/splash.png",

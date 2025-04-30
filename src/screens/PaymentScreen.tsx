@@ -66,7 +66,6 @@ const ButtonText = styled.Text`
 
 const PaymentScreen = () => {
   const route = useRoute();
-  const [contest, setContest] = useState<string>();
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const selectedDestination = useSelector((state: RootState) => state.bets.selectedDestino);
@@ -80,11 +79,8 @@ const PaymentScreen = () => {
 
       const requestBody = {
         destinationId: selectedDestination.id,
-        betTypeId: item.id,
-        contest
+        betTypeId: item.id
       };
-
-      console.log(requestBody);
 
       const response = await createBet(requestBody, token) as Response;
 
@@ -109,14 +105,9 @@ const PaymentScreen = () => {
       <Title>Informações da aposta</Title>
 
       <CardContainer>
-        <Label>Concurso:</Label>
+        <Label>Destino: {selectedDestination.name}</Label>
+        <Label>Aposta: {item.name}</Label>
 
-        <Input
-          value={contest}
-          onChangeText={setContest}
-          keyboardType="numeric"
-          placeholder="Concurso da aposta"
-        />
 
         <SaveButton disabled={loading} onPress={handleCreateBet}>
           {loading ? <ActivityIndicator color="#fff" /> : <ButtonText>Apostar</ButtonText>}

@@ -107,7 +107,7 @@ const HomeScreen = () => {
         renderItem={({ item }) => (
           <DestinoCard onPress={() => handleSelectDestino(item)}>
             <DestinoText>{item.name}: {Number(item.award).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</DestinoText>
-            <AvailableText>{100000 * (item.limit / 100)} disponíveis</AvailableText>
+            <AvailableText>{100000 * (item.limit / 100) - item.sold} disponíveis</AvailableText>
           </DestinoCard>
         )}
       />}
