@@ -7,7 +7,6 @@
     "icon": "src/assets/bode.jpeg",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": null,
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -20,13 +19,11 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": null,
         "backgroundColor": "#ffffff"
       },
       "package": "com.cisun.bodesdesorte"
     },
     "web": {
-      "favicon": null
     },
     "plugins": [
       "expo-secure-store"
