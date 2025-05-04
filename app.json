@@ -7,7 +7,6 @@
     "icon": "src/assets/bode.jpeg",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "src/assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,17 +14,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.cisun.bodesdesorte"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.cisun.bodesdesorte"
     },
     "web": {
-      "favicon": "src/assets/favicon.png"
     },
     "plugins": [
       "expo-secure-store"
@@ -34,6 +32,10 @@
       "eas": {
         "projectId": "883c5ee3-eb7a-4252-b58d-537bc44abcd5"
       }
+    },
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/883c5ee3-eb7a-4252-b58d-537bc44abcd5"
     }
   }
 }
