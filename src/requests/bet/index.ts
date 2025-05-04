@@ -43,6 +43,7 @@ export const getBets = async (token: string, data?: any) => {
         });
 
         return response;
+
     } catch (error) {
         return error;
     }

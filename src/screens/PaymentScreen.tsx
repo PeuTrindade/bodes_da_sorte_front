@@ -96,7 +96,8 @@ const PaymentScreen = () => {
 
       <CardContainer>
         <Label>Destino: {selectedDestination.name}</Label>
-        <Label>Aposta: {item.name}</Label>
+        <Label>Quantidade de números: {item.amount}</Label>
+        <Label>Valor da aposta: {Number(item.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Label>
 
 
         <SaveButton disabled={loading} onPress={handleCreateBet}>

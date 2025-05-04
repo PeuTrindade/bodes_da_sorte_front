@@ -126,6 +126,8 @@ const MyBetsScreen = () => {
         getInfo();
     }, [getBetsFn, getDestinationsIds]);
 
+    console.log(bets);
+
     return (
         <Container>
             <Title>Minhas Apostas</Title>

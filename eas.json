@@ -1,33 +1,34 @@
 {
   "cli": {
     "version": ">= 16.2.1",
-    "appVersionSource": "remote"
+    "appVersionSource": "remote",
+    "requireCommit": true
   },
- "build": {
-    "develop": {
-      "developmentClient": true,
-      "distribution": "internal"
-    },
-    "teste": {
+  "build": {
+    "development": {
+      "developmentClient": false,
+      "distribution": "internal",
       "android": {
         "buildType": "apk"
       },
-      "channel": "hmg"
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "cache": {
+        "disabled": true
+      }
     },
-    "hmg": {
+    "preview": {
+      "distribution": "internal",
       "android": {
         "buildType": "apk"
-      },
-      "channel": "hmg"
+      }
     },
-    "main": {
-      "distribution": "store",
-      "node": "18.18.0",
+    "production": {
       "autoIncrement": true,
       "android": {
         "buildType": "app-bundle"
-      },
-      "channel": "main"
+      }
     }
   },
   "submit": {
