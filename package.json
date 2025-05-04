@@ -6,7 +6,7 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "lint": "eslint .",
-    "start": "react-native start",
+    "start": "expo start --dev-client",
     "test": "jest"
   },
   "dependencies": {
@@ -42,14 +42,13 @@
     "expo": "^52.0.44",
     "expo-cli": "^4.0.17",
     "expo-secure-store": "~14.0.1",
-    "expo-updates": "~0.27.4",
     "jest": "~29.7.0",
     "metro": "^0.82.1",
     "prettier": "2.8.8",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-hook-form": "^7.55.0",
-    "react-native": "0.76.7",
+    "react-native": "0.76.9",
     "react-native-currency-input": "^1.1.1",
     "react-native-dotenv": "^3.4.11",
     "react-native-gesture-handler": "~2.20.2",
@@ -61,9 +60,13 @@
     "react-redux": "^9.2.0",
     "react-test-renderer": "^18.2.0",
     "styled-components": "^6.1.16",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "expo-status-bar": "~2.0.1"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
   }
 }
